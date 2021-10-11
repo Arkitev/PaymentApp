@@ -1,4 +1,5 @@
 # PaymentApp
+Front-End for PaymentApp CRUD based on tutorial: https://youtu.be/S5dzfuh3t8U
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
