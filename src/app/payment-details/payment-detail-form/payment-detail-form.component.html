@@ -1,0 +1,35 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="paymentDetailId"
+    [value]="paymentDetailService.formData.paymentDetailId" />
+    <div class="f-group mb-3 asterisk">
+        <label for="cardOwnerName">CARD OWNER NAME</label>
+        <input class="form-control form-control-lg" placeholder="Full Name" aria-label="Full Name" 
+        id="cardOwnerName" name="cardOwnerName"
+        required [class.invalid]="cardOwnerName.invalid && cardOwnerName.touched"
+        #cardOwnerName="ngModel" [(ngModel)]="paymentDetailService.formData.cardOwnerName">
+    </div>
+    <div class="f-group mb-3">
+        <label for="cardNumber">CARD NUMBER</label>
+        <input class="form-control form-control-lg" placeholder="16 Digit Card Number" aria-label="16 Digit Card Number"
+        id="cardNumber" name="cardNumber"
+        required maxlength="16" minlength="16" [class.invalid]="cardNumber.invalid && cardNumber.touched"
+        #cardNumber="ngModel" [(ngModel)]="paymentDetailService.formData.cardNumber">
+    </div>
+    <div class="f-group row">
+        <div class="mb-3 col-md-6">
+            <label for="securityCode">SECURITY CODE</label>
+            <input type="password" class="form-control form-control-lg" placeholder="Security Code" aria-label="Security Code" 
+            id="securityCode" name="securityCode" 
+            required maxlength="3" minlength="3" [class.invalid]="securityCode.invalid && securityCode.touched"
+            #securityCode="ngModel" [(ngModel)]="paymentDetailService.formData.securityCode">
+        </div>
+        <div class="f-group mb-3 col-md-6">
+            <label for="expirationDate">VALID THROUGH</label>
+            <input class="form-control form-control-lg" placeholder="MM/YY" aria-label="MM/YY"
+            id="expirationDate" name="expirationDate" 
+            required maxlength="5" minlength="5" [class.invalid]="expirationDate.invalid && expirationDate.touched"
+            #expirationDate="ngModel" [(ngModel)]="paymentDetailService.formData.expirationDate">
+        </div>
+    </div>
+    <button class="btn btn-info btn-lg w-100" type="submit" [disabled]="form.invalid">SUBMIT</button>
+</form>
